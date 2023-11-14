@@ -68,9 +68,9 @@
     <div class="footerLogo" href="{{route('home')}}">Jupiter</div>
     <div class="Listsoffooter">
         <a class="listss" href=" {{route('home')}}">Home</a>
-        <a class="listss" href=" {{route('about')}}">About</a>
-        <a class="listss" href=" {{route('projects')}}">Projects</a>
-        <a class="listss"  href=" {{route('Achievements')}}">Achievements</a>
+        <a class="listss" href="#about">About</a>
+        <a class="listss" href="#projects">Projects</a>
+        <a class="listss"  href="#certificates">Certificates</a>
     </div>
 
     <div class="icons">

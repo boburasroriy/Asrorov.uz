@@ -9,6 +9,7 @@ $title = 'Asrorov.uz';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title = isset($title) ? $title : 'Asrorov' }}</title>
 </head>
+<link rel="icon" type="image/x-icon" href="https://camo.githubusercontent.com/9f549df9473b6abc13a0a81d0a91ae56a8d85d641ab271c25b21af450d058e44/68747470733a2f2f676574636f6d706f7365722e6f72672f696d672f6c6f676f2d636f6d706f7365722d7472616e73706172656e742e706e67">
 <body>
 <style>
     nav{
@@ -93,15 +94,16 @@ $title = 'Asrorov.uz';
 </style>
 <div class="bg-img"></div>
 <nav class="container">
-
     <div class="logo" href="{{route('home')}}">Jupiter</div>
     <div class="Ul">
         <a class="lists" href=" {{route('home')}}">Home</a>
-        <a class="lists" href=" {{route('about')}}">About</a>
-        <a class="lists" href=" {{route('projects')}}">Projects</a>
-        <a class="lists"  href=" {{route('Achievements')}}">Achievements</a>
+        <a class="lists" href="#about">About</a>
+        <a class="lists" href="#projects">Projects</a>
+        <a class="lists"  href="#certificates">Certificates</a>
     </div>
-    <button class=ContactButton><a class="lists" href=" {{route('contact')}}">CONTACT</a></button>
+
+    <button  class=ContactButton><a href="#contact" class="lists" >CONTACT</a></button>
+
 </nav>
 <script src="https://kit.fontawesome.com/c0d7846991.js" crossorigin="anonymous"></script>
 </body>

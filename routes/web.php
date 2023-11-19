@@ -16,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('components.home');
 });
-Route::get('/home', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
+
+
+
+Route::get('/home', [\App\Http\Controllers\Controller::class, 'home'])->name('home');
+Route::post('/home', [\App\Http\Controllers\Controller::class, 'store']);
 

@@ -418,6 +418,7 @@
             border: 0.5px solid  #EB4432;
             border-radius: 25px;
             width: 300px;
+            height: 400px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -426,22 +427,25 @@
         .listofprojects:hover{
             box-shadow: 1px 1px 3px 3px #EB4432;
         }
-        .listofprojects h6 a{
+        .listofprojects h6{
+            margin-top: 100px;
             color: black;
             font-family: 'Segoe UI';
             font-weight: bold;
             font-size: 20px;
-            width: 100%;
         }
+
         .listofprojects p{
             font-family: 'Segoe UI Regular';
             font-size: 16px;
-        }
 
+        }
         .projectbox p{
-            margin-top: -10px;
+            margin-top: -35px;
+
         }
         .img_project{
+            margin-top: 0px;
             border-radius: 15px;
             width: 250px;
             height: 75px;
@@ -461,9 +465,11 @@
        <div class="listofprojects" href="" >
            <div class="projectbox" style="cursor: pointer" >
                <div class="img_project" ><img  src="https://microgold-investment-group.uz/wp-content/uploads/2023/06/orginal-logo.png"   alt=""></div>
-               <h6><a href="https://microgold-investment-group.uz" target="_blank" >Microgold-Investment-Group.uz</a></h6>
+               <h6>Microgold-Investment-Group.uz</h6>
                <p>This website is created for investment company.
-               and our client was so satisfied. It was created by using CMS Wordpress.</p>
+               and our client was so satisfied. It was created by using CMS Wordpress.
+               <a target="_blank"  href="https://microgold-investment-group.uz">microgold-investment-group.uz</a>
+               </p>
            </div>
        </div>
        </div>
@@ -478,10 +484,15 @@
                 font-size: 48px;
                 margin-bottom: 50px;
             }
+            .Certificate_description{
+                font-family: 'Segoe UI Regular';
+                width: 400px;
+            }
         </style>
         <h6  class="Certificates_title">Certificates</h6>
         <div class="certificate_box">
             <img width="400px" height="250px" src="https://marketplace.canva.com/EAFNlUJs5g4/2/0/1600w/canva-white-simple-certificate-of-appreciation-Fcz7KkZ5YaU.jpg">
+            <p  class="Certificate_description">This certification is given by AA organization and it goes perfect</p>
         </div>
     </div>
     <style>
@@ -530,17 +541,25 @@
     <div id="contact">
     <div class="ContactsSection container">
         <h6 class="Contact_title">Contact</h6>
-        <div>
-            <input placeholder="Name" class="nameInput" type="text"   required />
-        </div>
-        <div>
-            <input  class="emailInput"  placeholder="Email" type="email" pattern=".+@example\.com" size="30" required />
-        </div>
-        <div>
-            <input placeholder="Message" class="textInput" type="text"   required />
-        </div>
-        <button class="sendbtn" type="submit">Send</button>
+{{--        @foreach($applications as $application)--}}
+        <form method="post" action="{{ route('home') }}">
+            @csrf
+            <div>
+                <input placeholder="Name" name="name" class="nameInput" type="text" required />
+            </div>
+            <div>
+                <input class="emailInput" name="email" placeholder="Email" type="email" size="30" required />
+            </div>
+            <div>
+                <input placeholder="Message" name="message" class="textInput" type="text" required />
+            </div>
+
+            <button class="sendbtn" type="submit">Send</button>
+        </form>
+{{--        @endforeach--}}
+
     </div>
+
     </div>
     <div class="container" style="display: flex; justify-content: end; margin-top: -350px; margin-right: 300px">
         <img width="350px" height="350px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png" alt="">

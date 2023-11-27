@@ -16,6 +16,11 @@ class Controller extends BaseController
     {
         return view('components.home');
     }
+    function registration()
+    {
+        return view('components.registration');
+    }
+
 
     public function store(Request $request)
     {

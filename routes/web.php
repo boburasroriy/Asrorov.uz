@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 
-
+Route::get('registration', [\App\Http\Controllers\Controller::class, 'registration'])->name('registration');
 Route::get('/home', [\App\Http\Controllers\Controller::class, 'home'])->name('home');
 Route::post('/home', [\App\Http\Controllers\Controller::class, 'store']);
 

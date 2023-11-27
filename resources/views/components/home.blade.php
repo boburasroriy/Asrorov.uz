@@ -474,27 +474,7 @@
        </div>
        </div>
    </div>
-    {{------------------------------------------------------------------------------------certifications section-----------------------------------------}}
-
-    <div class="certificates container" id="certificates" >
-        <style>
-            .Certificates_title{
-                font-family: 'Segoe UI';
-                font-weight: bold;
-                font-size: 48px;
-                margin-bottom: 50px;
-            }
-            .Certificate_description{
-                font-family: 'Segoe UI Regular';
-                width: 400px;
-            }
-        </style>
-        <h6  class="Certificates_title">Certificates</h6>
-        <div class="certificate_box">
-            <img width="400px" height="250px" src="https://marketplace.canva.com/EAFNlUJs5g4/2/0/1600w/canva-white-simple-certificate-of-appreciation-Fcz7KkZ5YaU.jpg">
-            <p  class="Certificate_description">This certification is given by AA organization and it goes perfect</p>
-        </div>
-    </div>
+    {{------------------------------------------------------------------------------------certifications section-----------------------------------------}}`--}}
     <style>
         .Contact_title{
             font-family: 'Segoe UI';

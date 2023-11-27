@@ -100,9 +100,9 @@ $title = 'Asrorov.uz';
         <a class="lists" href=" {{route('home')}}">Home</a>
         <a class="lists" href="#about">About</a>
         <a class="lists" href="#projects">Projects</a>
-        <a class="lists"  href="#certificates">Certificates</a>
+        <a class="lists"  href="#contact">Contact</a>
     </div>
-    <button  class=ContactButton><a href="#contact" class="lists" >CONTACT</a></button>
+    <button  class=ContactButton><a href="{{ route('registration') }}" class="lists" >Sign In</a></button>
 </nav>
 <script src="https://kit.fontawesome.com/c0d7846991.js" crossorigin="anonymous"></script>
 </body>

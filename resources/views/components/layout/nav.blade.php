@@ -103,7 +103,13 @@ $title = 'Asrorov.uz';
         <a class="lists"  href="#contact">Contact</a>
         <a class="lists"  href="#contact"></a>
     </div>
-    <button  class=ContactButton><a href="{{ route('register') }}" class="lists" >Sign In</a></button>
+
+    @if(auth()->check())
+        <button  class="ContactButton lists" ><a href="{{ route('dashboard') }}" class="lists" >{{ Auth::user()->name }}</a></button>
+    @else
+        <button  class=ContactButton><a href="{{ route('register') }}" class="lists" >Sign In </a></button>
+    @endif
+
 </nav>
 <script src="https://kit.fontawesome.com/c0d7846991.js" crossorigin="anonymous"></script>
 </body>

@@ -13,14 +13,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('home', [\App\Http\Controllers\Controller::class, 'home'])->name('home');
+//Route Sections
+Route::get('/', [\App\Http\Controllers\Controller::class, 'home'])->name('home');
 
-Route::get('/', function () { return view('/home');})->name('home');
-Route::post('/', [\App\Http\Controllers\MailSend::class, 'store']);
+//Email section
 Route::get('/home#contact', [\App\Http\Controllers\Controller::class, 'contact'])->name('contact');
+Route::post('/', [\App\Http\Controllers\MailSend::class, 'store']);
+Route::get('edit', [\App\Http\Controllers\ManagerApplication::class, 'edit'])->name('edit');
 
 
-
+Route::resource('ManagerApplication',\App\Http\Controllers\ManagerApplication::class);
+//Route::resource('ManagerEducationApplication', \App\Http\Controllers\ManagerEducationSection::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

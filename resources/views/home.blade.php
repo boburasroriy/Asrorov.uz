@@ -281,30 +281,73 @@
                     </defs>
                 </svg>
             </div>
-        <h1 class="name">Bobur Asrorov</h1>
-        <h2 class="nameofProfession">PHP/Laravel developer</h2>
-        </div>
-        <div class="description">"Everything is achievable with hard work"</div>
-        <div class="buttonofMain">
-            <button class="aboutmorebutton"><a  href="/images/Bg-images/wiut.jpg" download="wiut.jpg"> ABOUT MORE </a></button>
-            <button  class="downloadCVbutton"><a href="/images/Bg-images/wiut.jpg" download="wiut.jpg">DOWNLOAD CV</a></button>
-            <div class="cube2 cubesectond">
-                <svg xmlns="http://www.w3.org/2000/svg" width="46" height="53" viewBox="0 0 46 53" fill="none">
-                    <g clip-path="url(#clip0_183_281)">
-                        <path d="M45.202 39.108V13.704L23.102 1L1.00098 13.704V39.108" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
-                        <path d="M45.202 39.105L23.102 51.807L1 39.105" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
-                        <path d="M1 13.699L23.1002 26.4022L23.1009 51.8072L1.00076 39.104L1 13.699Z" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
-                        <path d="M23.102 26.402L45.2022 13.6988L45.2014 39.1038L23.1012 51.807L23.102 26.402Z" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
-                        <path d="M1 13.702L23.101 1.00012L45.2019 13.702L23.101 26.4039L1 13.702Z" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_183_281">
-                            <rect width="46" height="53" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-            </div>
-        </div>
+            @foreach($posts as $post)
+            @if (auth()->check())
+                @if (auth()->user()->role->name == 'Manager')
+                    <h1 class="name"> {{$post->first_title ?? 'Bobur Asrorov'}}</h1>
+                    <h2  class="nameofProfession">{{$post->second_title ?? 'PHP/Laravel developer'}}</h2>
+                    <div class="description">"{{$post->slot ?? 'Everything achievable with hard work'}}"</div>
+                    <div style="display: flex; justify-content: center" class="EditSecction">
+                    <button  style=" margin-right: 5px; width: 50px; height: 25px; background-color: #EB4432; border-radius: 5px; border: none; color: white; text-decoration: none" ><a style="color: white; text-decoration: none" href="{{route('ManagerApplication.edit', ['ManagerApplication'=>$post->id])}}">Edit</a></button>
+                    </div>
+                    <div class="buttonofMain">
+                        <button class="aboutmorebutton"><a  href="#about"> ABOUT MORE </a></button>
+                        <button  class="downloadCVbutton"><a href="/images/Bg-images/wiut.jpg" download="wiut.jpg">DOWNLOAD CV</a></button>
+                    </div>
+
+                @else
+                        <h1 class="name"> {{$post->first_title ?? 'Bobur Asrorov'}}</h1>
+                        <h2  class="nameofProfession">{{$post->second_title ?? 'PHP/Laravel developer'}}</h2>
+                        <div class="description">"{{$post->slot ?? 'Everything achievable with hard work'}}"</div>
+                    <div class="buttonofMain">
+                        <button class="aboutmorebutton"><a href="#about">ABOUT MORE </a></button>
+                        <button  class="downloadCVbutton"><a href="/images/Bg-images/wiut.jpg" download="wiut.jpg">DOWNLOAD CV</a></button>
+                        <div class="cube2 cubesectond">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="53" viewBox="0 0 46 53" fill="none">
+                                <g clip-path="url(#clip0_183_281)">
+                                    <path d="M45.202 39.108V13.704L23.102 1L1.00098 13.704V39.108" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
+                                    <path d="M45.202 39.105L23.102 51.807L1 39.105" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
+                                    <path d="M1 13.699L23.1002 26.4022L23.1009 51.8072L1.00076 39.104L1 13.699Z" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
+                                    <path d="M23.102 26.402L45.2022 13.6988L45.2014 39.1038L23.1012 51.807L23.102 26.402Z" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
+                                    <path d="M1 13.702L23.101 1.00012L45.2019 13.702L23.101 26.4039L1 13.702Z" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_183_281">
+                                        <rect width="46" height="53" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                @endif
+            @else
+                    <h1 class="name"> {{$post->first_title ?? 'Bobur Asrorov'}}</h1>
+                    <h2  class="nameofProfession">{{$post->second_title ?? 'PHP/Laravel developer'}}</h2>
+                    <div class="description">"{{$post->slot ?? 'Everything achievable with hard work'}}"</div>
+                <div class="buttonofMain">
+                    <button class="aboutmorebutton"><a  href="#about">ABOUT MORE </a></button>
+                    <button  class="downloadCVbutton"><a href="/images/Bg-images/wiut.jpg" download="wiut.jpg">DOWNLOAD CV</a></button>
+                    <div class="cube2 cubesectond">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="53" viewBox="0 0 46 53" fill="none">
+                            <g clip-path="url(#clip0_183_281)">
+                                <path d="M45.202 39.108V13.704L23.102 1L1.00098 13.704V39.108" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
+                                <path d="M45.202 39.105L23.102 51.807L1 39.105" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
+                                <path d="M1 13.699L23.1002 26.4022L23.1009 51.8072L1.00076 39.104L1 13.699Z" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
+                                <path d="M23.102 26.402L45.2022 13.6988L45.2014 39.1038L23.1012 51.807L23.102 26.402Z" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
+                                <path d="M1 13.702L23.101 1.00012L45.2019 13.702L23.101 26.4039L1 13.702Z" stroke="#EB4432" stroke-width="1.435" stroke-linejoin="bevel"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_183_281">
+                                    <rect width="46" height="53" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            @endif
+            @endforeach
+
+
     </div>
 <div class="iconsss" style=" display: flex; justify-content: center;  margin-top: 30px">
         <a href="https://github.com/boburasroriy" target="_blank">  <i  class="fa-brands fa-github  icons_item" style="color: #000000;"></i></a>
@@ -312,6 +355,7 @@
         <a href="https://t.me/Bobur_Asrorov_full" target="_blank">  <i  class="fa-brands fa-telegram icons_item" style="color: #000000;"></i></a>
         <a href="https://www.instagram.com/asrorov_bobur_full/" target="_blank"><i class="fa-brands fa-instagram icons_item" style="color: #000000;"></i></a>
 </div>
+    </div>
 </main>
 
 {{------------------------------------------------------------------------------------About section-----------------------------------------}}
@@ -457,32 +501,62 @@
     }
 </style>
 <div id="about"  class="about container">
+    @foreach($posts as $post)
+        @if (auth()->check())
+            @if (auth()->user()->role->name == 'Manager')
     <div class="EducationSection">
         <div class="EducationtextContent">
-            <h3 class="EducationTitle">Education</h3>
-            <p class="EducationText">I am an active student at Westminster International University of Tashkent (WIUT) and i actively engaged in enhancing my communication, leadership, teamwork, and negotiation skills, among others. WIUT provides a supportive environment that encourages personal and professional development, allowing me to thrive and grow.</p>
+            <h3 class="EducationTitle">{{$post->first_title_education}}</h3>
+            <p class="EducationText">{{$post->first_text_education}}</p>
             <a href="https://www.wiut.uz/"  target="_blank" ><button class="Wiutbtn">WIUT</button></a>
         </div>
         <div class="imagesWiut" >
-            <img class="imagesWiut"  src="https://studenthunter.org/images/university/images/1678272914.jpg" alt="wiut">
+            <img class="imagesWiut" name="photoUniversity"  src="https://studenthunter.org/images/university/images/1678272914.jpg" alt="wiut">
         </div>
     </div>
+            @else
+                <div class="EducationSection">
+                    <div class="EducationtextContent">
+                        <h3 class="EducationTitle">{{$post->first_title_education}}</h3>
+                        <p class="EducationText">{{$post->first_text_education}}</p>
+                        <a href="https://www.wiut.uz/"  target="_blank" ><button class="Wiutbtn">WIUT</button></a>
+                    </div>
+                    <div class="imagesWiut" >
+                        <img class="imagesWiut" name="photoUniversity"  src="https://studenthunter.org/images/university/images/1678272914.jpg" alt="wiut">
+                    </div>
+                </div>
+            @endif
+        @else
+            <div class="EducationSection">
+                <div class="EducationtextContent">
+                    <h3 class="EducationTitle">{{$post->first_title_education}}</h3>
+                    <p class="EducationText"> {{$post->first_text_education}}</p>
+                    <a href="https://www.wiut.uz/"  target="_blank" ><button class="Wiutbtn">WIUT</button></a>
+                </div>
+                <div class="imagesWiut" >
+                    <img class="imagesWiut" name="photoUniversity"  src="https://studenthunter.org/images/university/images/1678272914.jpg" alt="wiut">
+                </div>
+            </div>
+        @endif
+    @endforeach
+
+    @foreach($posts as $post)
     <div class="technologiesSection">
-        <h3 class="TechnologiesTitle">Technologies</h3>
+        <h3 class="TechnologiesTitle">{{$post->technologies_title}}</h3>
         <div class="technologies_list">
             <ul>
-                <li>PHP 8.2</li>
-                <li>Object-oriented programming (OOP)</li>
-                <li>Laravel 10</li>
-                <li>MYSQL / SQL</li>
-                <li>Git (version control)  </li>
+                <li>{{$post->technologies_1}}</li>
+                <li>{{$post->technologies_2}}</li>
+                <li>{{$post->technologies_3}}</li>
+                <li>{{$post->technologies_4}}</li>
+                <li>{{$post->technologies_5}}  </li>
             </ul>
             <ul>
-                <li>JavaScript (basics)</li>
-                <li>Vue JS</li>
-                <li>CMD (Wordpress)</li>
-                <li>HTML/CSS/Bootstrap </li>
-                <li>Bitrix24/AmoCRM</li>
+                <li>{{$post->technologies_6}}</li>
+                <li>{{$post->technologies_7}}</li>
+                <li>{{$post->technologies_8}}</li>
+                <li>{{$post->technologies_9}} </li>
+                <li>{{$post->technologies_10}}</li>
             </ul>
             <div style="position: absolute; margin-left: 1200px"  >    <div class="cube cube3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="46" height="53" viewBox="0 0 46 53" fill="none">
@@ -502,6 +576,7 @@
                 </div></div>
         </div>
     </div>
+        @endforeach
     <div class="cube cube4">
         <svg xmlns="http://www.w3.org/2000/svg" width="46" height="53" viewBox="0 0 46 53" fill="none">
             <g clip-path="url(#clip0_183_281)">
@@ -518,6 +593,7 @@
             </defs>
         </svg>
     </div>
+        @foreach($posts as $post)
     <div class="FeaturesSection container">
         <div class="titleandsloganOffeaturesSection">
             <h4 class="FeaturesSectionTitle">Skills and abilities</h4>
@@ -526,30 +602,30 @@
         <div class="FeaturesSectionContentsAll contentsofskill">
             <div class="hardSkillsContent">
                 <h5 class="hardSkillsTitle">Hard Skills</h5>
-                <p class="hardskillsList">- Experience in Laravel 10.</p>
-                <p class="hardskillsList">- Thorough understanding of OOP (object-oriented programming) principles.</p>
-                <p class="hardskillsList">- Working knowledge of front-end technologies, including HTML5, CSS3, Vue JS.</p>
-                <p class="hardskillsList">- Understanding relational databases such as MySQL.</p>
-                <p class="hardskillsList">- Understanding of version control systems (Git)</p>
-                <p class="hardskillsList">- Proficiency with application software testing (Unit and feature).</p>
-                <p class="hardskillsList">- Ability to optimize applications for speed and scalability.</p>
-                <p class="hardskillsList">- Creating CRM and HRM systems using Birtix24 and amoCRM.</p>
-                <p class="hardskillsList">- Creating webapps using Wordpress.</p>
-                <p class="hardskillsList">- Basic knowledge of JavaScript.</p>
+                <p class="hardskillsList">{{ $post->title_skills_1 }}</p>
+                <p class="hardskillsList">{{ $post->title_skills_2 }}</p>
+                <p class="hardskillsList">{{ $post->title_skills_3 }}</p>
+                <p class="hardskillsList">{{ $post->title_skills_4 }}</p>
+                <p class="hardskillsList">{{ $post->title_skills_5 }}</p>
+                <p class="hardskillsList">{{ $post->title_skills_6 }}</p>
+                <p class="hardskillsList">{{ $post->title_skills_7 }}</p>
+                <p class="hardskillsList">{{ $post->title_skills_8 }}</p>
+                <p class="hardskillsList">{{ $post->title_skills_9 }}</p>
+                <p class="hardskillsList">{{ $post->title_skills_10 }}</p>
             </div>
             <div class="softSkillsContent">
                 <div>
                     <h5 class="hardSkillsTitle">Soft Skills</h5>
-                    <p class="hardskillsList">- Motivated to learn new skills and technologies.</p>
-                    <p class="hardskillsList">- Strong Communication and interpersonal skills.</p>
-                    <p class="hardskillsList">- Ability to work independently and in a team.</p>
-                    <p class="hardskillsList">- Strong critical thinking and problem-solving skills</p>
+                    <p class="hardskillsList">{{ $post->title_skills_11 }}</p>
+                    <p class="hardskillsList">{{ $post->title_skills_12 }}</p>
+                    <p class="hardskillsList">{{ $post->title_skills_13 }}</p>
+                    <p class="hardskillsList">{{ $post->title_skills_14 }}</p>
                 </div>
                 <div class="languageSkillsContent">
                     <h5 class="languageSkillsTitle">Language Skills:</h5>
-                    <p class="hardskillsList">- English — Intermediate/B2 (IELTS 6.0)</p>
-                    <p class="hardskillsList">- Russian — pre-intermediate/B1</p>
-                    <p class="hardskillsList">- Uzbek — Native/C2</p>
+                    <p class="hardskillsList">{{ $post->title_skills_15 }}</p>
+                    <p class="hardskillsList">{{ $post->title_skills_16 }}</p>
+                    <p class="hardskillsList">{{ $post->title_skills_17 }}</p>
                 </div>
                 <div class="cube cube5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="46" height="53" viewBox="0 0 46 53" fill="none">
@@ -570,18 +646,21 @@
             </div>
         </div>
     </div>
+        @endforeach
 </div>
 <div>
+
     {{------------------------------------------------------------------------------------Projects section-----------------------------------------}}
     <style>
         .boxesProjects{
-            flex-wrap: wrap;
+            flex-wrap: wrap-reverse;
             place-items: center;
             display: flex;
+
         }
 
         .titleofProjectssection{
-
+            margin-left: 20px;
             margin-top: 200px;
         }
         .projectsSection h5 {

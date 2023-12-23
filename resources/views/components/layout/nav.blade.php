@@ -101,7 +101,7 @@ $title = 'Asrorov.uz';
         <a class="lists" href="#about">About</a>
         <a class="lists" href="#projects">Projects</a>
         <a class="lists"  href="#contact">Contact</a>
-        <a class="lists"  href="#contact"></a>
+
     </div>
 
     @if(auth()->check())

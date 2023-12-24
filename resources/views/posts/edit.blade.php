@@ -12,7 +12,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            /*height: 100vh;*/
         }
 
         form {
@@ -121,7 +121,7 @@
         <textarea name="title_skills_15" id="" cols="38" rows="1">{{$post->title_skills_15}}</textarea>
         <textarea name="title_skills_16" id="" cols="38" rows="1">{{$post->title_skills_16}}</textarea>
         <textarea name="title_skills_17" id="" cols="38" rows="1">{{$post->title_skills_17}}</textarea>
-        <textarea name="title_skills_18" id="" cols="38" rows="1">{{$post->title_skills_18}}</textarea>
+{{--        <textarea name="title_skills_18" id="" cols="38" rows="1">{{$post->title_skills_18}}</textarea>--}}
     </div>
 
 

@@ -27,6 +27,5 @@ class ManagerAppModel extends Model
         'title_skills_15',
         'title_skills_16',
         'title_skills_17',
-        'title_skills_18',
         ];
 }

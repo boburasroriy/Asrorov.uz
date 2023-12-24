@@ -23,7 +23,7 @@ Route::get('edit', [\App\Http\Controllers\ManagerApplication::class, 'edit'])->n
 
 
 Route::resource('ManagerApplication',\App\Http\Controllers\ManagerApplication::class);
-//Route::resource('ManagerEducationApplication', \App\Http\Controllers\ManagerEducationSection::class);
+Route::resource('Post', \App\Http\Controllers\PostControllerController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

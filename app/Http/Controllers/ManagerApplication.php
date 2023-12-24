@@ -47,7 +47,6 @@ public function store(storerequest $request)
        'title_skills_15'=> $request->title_skills_15,
        'title_skills_16'=> $request->title_skills_16,
        'title_skills_17'=> $request->title_skills_17,
-       'title_skills_18'=> $request->title_skills_18,
 
 
    ]);;
@@ -95,7 +94,6 @@ public function store(storerequest $request)
             'title_skills_15' =>request( 'title_skills_15'),
             'title_skills_16' =>request( 'title_skills_16'),
             'title_skills_17' =>request('title_skills_17'),
-            'title_skills_18' =>request('title_skills_18'),
             ]);
          return redirect()->route('home', ['posts' => $post->id]);
     }

@@ -511,7 +511,7 @@
             <a href="https://www.wiut.uz/"  target="_blank" ><button class="Wiutbtn">WIUT</button></a>
         </div>
         <div class="imagesWiut" >
-            <img class="imagesWiut" name="photoUniversity"  src="https://studenthunter.org/images/university/images/1678272914.jpg" alt="wiut">
+            <img class="imagesWiut"   src="https://studenthunter.org/images/university/images/1678272914.jpg" alt="wiut">
         </div>
     </div>
             @else
@@ -710,21 +710,101 @@
             height: 55px;
         }
     </style>
-   <div id="projects"  class="projectsSection container">
-       <h5 class="titleofProjectssection">Last projects</h5>
-       <div class="boxesProjects">
-       <div class="listofprojects" href="" >
-           <div class="projectbox" style="cursor: pointer" >
-               <div class="" ><img style="margin-top: 50px"  src="https://microgold-investment-group.uz/wp-content/uploads/2023/06/orginal-logo.png"   alt=""></div>
-               <h6 style="margin-top: 55px">Microgold-Investment-Group.uz</h6>
-               <p>This website is created for investment company.
-               and our client was so satisfied. It was created by using CMS Wordpress.
-               <a target="_blank"  href="https://microgold-investment-group.uz">microgold-investment-group.uz</a>
-               </p>
-           </div>
-       </div>
-       </div>
-   </div>
+    @if (auth()->check())
+        @if (auth()->user()->role->name == 'Manager')
+            <div id="projects"  class="projectsSection container" >
+                <div  style="display: flex; justify-content: space-between">
+                    <h5 class="titleofProjectssection">Last projects</h5>
+                    <button  style=" margin-right: 5px; margin-top: 280px; width: 50px; height: 25px; background-color: #EB4432; border-radius: 5px; border: none; color: white; text-decoration: none"> <a style="color: white; text-decoration: none" href="{{route('Post.create')}}">Create</a></button>
+                </div>
+                <div  class="container" style="display: flex;  flex-wrap: wrap; max-width: 1040px; margin: auto">
+                @foreach($adminPost as $adminPosts)
+                <div class="boxesProjects " style="display: flex;  margin-bottom: 20px; " >
+                    <div class="listofprojects" >
+                        <div class="projectbox" style="cursor: pointer" >
+                            <div style="display:flex; justify-content: center; margin-top: 10px; margin-right: auto; margin-left: auto;  width: 100%; height: 100%">
+                            <img style=" width: 150px; height: 150px " src="{{ asset('/storage/'.$adminPosts->Create_photo) }}" alt="image">
+                            </div>
+                            <h6 style="margin-top: 5px">{{ $adminPosts->Create_title}}</h6>
+                            <p >{{ $adminPosts->Create_text}}
+                                <a style="display:flex; margin-top: 25px" target="_blank"  href="{{ $adminPosts->Create_link}}">{{ $adminPosts->Create_link}}</a>
+                            </p>
+                            <div>
+                                <button  style=" margin-right: 5px; width: 50px; height: 25px; background-color: #EB4432; border-radius: 5px; border: none; ">  <a style="color: white; text-decoration: none" href="{{route('Post.edit', $adminPosts->id)}}">Edit</a> </button>
+                                <form action=" {{route('Post.destroy', ['Post' => $adminPosts->id])}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" style=" color: white; text-decoration: none;  margin-right: 5px; width: 50px; height: 25px; background-color: #EB4432; border-radius: 5px; border: none; ">Delete </button>
+
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                    @endforeach
+                </div>
+            </div>
+
+
+        @else
+
+            <div id="projects"  class="projectsSection container" >
+                <div  style="display: flex; justify-content: space-between">
+                    <h5 class="titleofProjectssection">Last projects</h5>
+                </div>
+                <div  class="container" style="display: flex;  flex-wrap: wrap; max-width: 1040px; margin: auto">
+                    @foreach($adminPost as $adminPosts)
+                        <div class="boxesProjects " style="display: flex;  margin-bottom: 20px; " >
+                            <div class="listofprojects" >
+                                <div class="projectbox" style="cursor: pointer" >
+                                    <img style="margin-top: 10px; width: 265px; height: 155px" src="{{ asset('/storage/'.$adminPosts->Create_photo) }}" alt="image">
+                                    <h6 style="margin-top: 55px">{{ $adminPosts->Create_title}}</h6>
+                                    <p >{{ $adminPosts->Create_text}}
+                                        <a style="display:flex; margin-top: 25px" target="_blank"  href="{{ $adminPosts->Create_link}}">{{ $adminPosts->Create_link}}</a>
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+
+        @endif
+    @else
+
+        <div id="projects"  class="projectsSection container" >
+            <div  style="display: flex; justify-content: space-between">
+                <h5 class="titleofProjectssection">Last projects</h5>
+            </div>
+            <div  class="container" style="display: flex;  flex-wrap: wrap; max-width: 1040px; margin: auto">
+                @foreach($adminPost as $adminPosts)
+                    <div class="boxesProjects " style="display: flex;  margin-bottom: 20px; " >
+                        <div class="listofprojects" >
+                            <div class="projectbox" style="cursor: pointer" >
+                                <img style="margin-top: 10px;  width: 155px; height: 155px; " src="{{ asset('/storage/'.$adminPosts->Create_photo) }}" alt="image">
+                                <h6 style="margin-top: 55px">{{ $adminPosts->Create_title}}</h6>
+                                <p >{{ $adminPosts->Create_text}}
+                                    <a style="display:flex; margin-top: 25px" target="_blank"  href="{{ $adminPosts->Create_link}}">{{ $adminPosts->Create_link}}</a>
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+
+
+    @endif
+
     {{------------------------------------------------------------------------------------certifications section-----------------------------------------}}
     <style>
         .Contact_title{

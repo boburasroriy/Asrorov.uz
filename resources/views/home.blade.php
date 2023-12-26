@@ -729,25 +729,20 @@
                             <p >{{ $adminPosts->Create_text}}
                                 <a style="display:flex; margin-top: 25px" target="_blank"  href="{{ $adminPosts->Create_link}}">{{ $adminPosts->Create_link}}</a>
                             </p>
-                            <div>
-                                <button  style=" margin-right: 5px; width: 50px; height: 25px; background-color: #EB4432; border-radius: 5px; border: none; ">  <a style="color: white; text-decoration: none" href="{{route('Post.edit', $adminPosts->id)}}">Edit</a> </button>
-                                <form action=" {{route('Post.destroy', ['Post' => $adminPosts->id])}}" method="POST">
+                            <div style="display: flex; margin-bottom: 40px">
+                                <button  style=" margin-top: 0px;  margin-right: 5px; width: 50px; height: 25px; background-color: #EB4432; border-radius: 5px; border: none; ">  <a style="color: white; text-decoration: none" href="{{route('Post.edit',['Post'=> $adminPosts->id])}}">Edit</a> </button>
+                                <form  action="{{route('Post.destroy', ['Post' => $adminPosts->id])}}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" style=" color: white; text-decoration: none;  margin-right: 5px; width: 50px; height: 25px; background-color: #EB4432; border-radius: 5px; border: none; ">Delete </button>
-
                                 </form>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                     @endforeach
                 </div>
             </div>
-
-
         @else
 
             <div id="projects"  class="projectsSection container" >
@@ -759,15 +754,14 @@
                         <div class="boxesProjects " style="display: flex;  margin-bottom: 20px; " >
                             <div class="listofprojects" >
                                 <div class="projectbox" style="cursor: pointer" >
-                                    <img style="margin-top: 10px; width: 265px; height: 155px" src="{{ asset('/storage/'.$adminPosts->Create_photo) }}" alt="image">
-                                    <h6 style="margin-top: 55px">{{ $adminPosts->Create_title}}</h6>
+                                    <div style="display:flex; justify-content: center; margin-top: 10px; margin-right: auto; margin-left: auto;  width: 100%; height: 100%">
+                                        <img style=" width: 150px; height: 150px " src="{{ asset('/storage/'.$adminPosts->Create_photo) }}" alt="image">
+                                    </div>
+                                    <h6 style="margin-top: 5px">{{ $adminPosts->Create_title}}</h6>
                                     <p >{{ $adminPosts->Create_text}}
                                         <a style="display:flex; margin-top: 25px" target="_blank"  href="{{ $adminPosts->Create_link}}">{{ $adminPosts->Create_link}}</a>
                                     </p>
-
                                 </div>
-
-
                             </div>
                         </div>
                     @endforeach
@@ -787,14 +781,14 @@
                     <div class="boxesProjects " style="display: flex;  margin-bottom: 20px; " >
                         <div class="listofprojects" >
                             <div class="projectbox" style="cursor: pointer" >
-                                <img style="margin-top: 10px;  width: 155px; height: 155px; " src="{{ asset('/storage/'.$adminPosts->Create_photo) }}" alt="image">
-                                <h6 style="margin-top: 55px">{{ $adminPosts->Create_title}}</h6>
+                                <div style="display:flex; justify-content: center; margin-top: 10px; margin-right: auto; margin-left: auto;  width: 100%; height: 100%">
+                                    <img style=" width: 150px; height: 150px " src="{{ asset('/storage/'.$adminPosts->Create_photo) }}" alt="image">
+                                </div>
+                                <h6 style="margin-top: 5px">{{ $adminPosts->Create_title}}</h6>
                                 <p >{{ $adminPosts->Create_text}}
                                     <a style="display:flex; margin-top: 25px" target="_blank"  href="{{ $adminPosts->Create_link}}">{{ $adminPosts->Create_link}}</a>
                                 </p>
                             </div>
-
-
                         </div>
                     </div>
                 @endforeach

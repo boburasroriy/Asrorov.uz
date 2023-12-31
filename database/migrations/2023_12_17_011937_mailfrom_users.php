@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('mailfrom_users', function (Blueprint $table){
             $table->id();
             $table->string('name');
-            $table->string('email')->default('default@example.com')->unique();
+            $table->string('email')->unique()->default('default@example.com');
             $table->text('message');
             $table->timestamps();
         });

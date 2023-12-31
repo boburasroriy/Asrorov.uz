@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\Controller::class, 'home'])->name('home');
 
 //Email section
-Route::get('/home#contact', [\App\Http\Controllers\Controller::class, 'contact'])->name('contact');
+Route::get('#contact', [\App\Http\Controllers\Controller::class, 'contact'])->name('contact');
 Route::post('/', [\App\Http\Controllers\MailSend::class, 'store']);
 Route::get('edit', [\App\Http\Controllers\ManagerApplication::class, 'edit'])->name('edit');
 

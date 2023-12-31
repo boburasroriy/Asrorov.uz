@@ -4,7 +4,6 @@
     @media (width <= 425px) {
         *{
             max-width: 100%;
-
             box-sizing: border-box;
             font-size: 16px;
         }
@@ -114,14 +113,6 @@
 
         }
     }
-
-
-
-
-
-
-
-
     @media (width <= 768px) {
         *{
             max-width: 100%;
@@ -511,7 +502,7 @@
             <a href="https://www.wiut.uz/"  target="_blank" ><button class="Wiutbtn">WIUT</button></a>
         </div>
         <div class="imagesWiut" >
-            <img class="imagesWiut"   src="https://studenthunter.org/images/university/images/1678272914.jpg" alt="wiut">
+            <img class="imagesWiut"   src="../../storage/app/photos/tree-736885_1280.jpg" alt="wiut">
         </div>
     </div>
             @else
@@ -522,7 +513,7 @@
                         <a href="https://www.wiut.uz/"  target="_blank" ><button class="Wiutbtn">WIUT</button></a>
                     </div>
                     <div class="imagesWiut" >
-                        <img class="imagesWiut" name="photoUniversity"  src="https://studenthunter.org/images/university/images/1678272914.jpg" alt="wiut">
+                        <img class="imagesWiut" name="photoUniversity"  src="../../storage/app/photos/tree-736885_1280.jpg" alt="wiut">
                     </div>
                 </div>
             @endif
@@ -534,7 +525,7 @@
                     <a href="https://www.wiut.uz/"  target="_blank" ><button class="Wiutbtn">WIUT</button></a>
                 </div>
                 <div class="imagesWiut" >
-                    <img class="imagesWiut" name="photoUniversity"  src="https://studenthunter.org/images/university/images/1678272914.jpg" alt="wiut">
+                    <img class="imagesWiut" name="photoUniversity"  src="../../storage/app/photos/wiut.jpg" alt="wiut">
                 </div>
             </div>
         @endif
